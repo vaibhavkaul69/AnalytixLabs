@@ -13,9 +13,9 @@ function openFile()
                 for (var i = 0; i < rows.length; i++) {
                     var cells = rows[i].split(",");
                     if (cells.length > 1) {
-                        var row = table.insertRow(i);
+                        var row = table.insertRow(-1);
                         for (var j = 0; j < cells.length; j++) {
-                            var cell = row.insertCell(j);
+                            var cell = row.insertCell(-1);
                             cell.innerHTML = cells[j];
                         }
                     }
@@ -25,10 +25,13 @@ function openFile()
                 dvCSV.appendChild(table);
             }
             reader.readAsText(input.files[0]);
-        } else {
+        } 
+        else {
             alert("This browser does not support HTML5.");
         }
-    } else {
+    }
+     else {
         alert("Please upload a valid CSV file.");
     }
+    
 }

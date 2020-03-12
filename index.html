@@ -7,30 +7,31 @@
         <link rel="stylesheet" href="index.css" />
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-light bg-light">
-            <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="images/logo.jpg"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse ml-5" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item ml-5 text-dark">
-                  <a class="nav-link" href="#">Home </a>
-                </li>
-                <li class="nav-item ml-5 text-dark">
-                  <a class="nav-link" href="#">Features</a>
-                </li>
-                
-              </ul>
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="images/logo.jpg"></a>
+        <div class="collapse navbar-collapse  d-inline justify-content-end " id="navbarNav">
+          <ul class="navbar-nav">
+            <div class="dropdown d-inline">
+              <button type="button" class="btn btn-success  mr-xl-5 mr-lg-5 mr-md-5 mr-sm-5 dropdown-toggle" data-toggle="dropdown">
+                My Account
+              </button>
+              <div class="dropdown-menu" id="drop-menu">
+                <a class="dropdown-item" href="dashboard.html">My Dashboard</a>
+                <a class="dropdown-item" href="index.html">Upload CSV File</a>
+              </div>
             </div>
-          </nav>
-
+          </ul>
+        </div>
+      </nav>
         <section id="input-file">
           <h3 class="text-center display-5 mt-5">Open the CSV file using the below input.</h3>
-            <input type="file" name="csv-user-file" class="mx-auto d-block mt-5 " onchange="openFile()" accept=".csv" />
+          
+            <input type="file" name="csv-user-file" class="mx-auto mt-5 d-block" onchange="openFile()" accept=".csv" />
+            
         </section>
         <h3 class="text-center display-5 mt-5">Below is the Outputted CSV file in HTML tabular format.</h3>
         <div id="csv-output" class="text-center  table table-bordered mt-5"></div>
     </body>
     <script src="load-csv-file.js"></script>
+    <script src="drop-down-menu.js"></script>
 </html>

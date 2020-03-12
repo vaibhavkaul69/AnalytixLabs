@@ -19,4 +19,14 @@
 {
     overflow-x: scroll;
 }
+#myChart
+{
+    height:200px !important;
+    width:200px !important;
+}
 /*Responsiveness*/
+@media only screen and (max-width:780px)
+{
+   
+    
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Analytix Labs Web Assignment</title>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+        <link rel="stylesheet" href="index.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <a class="navbar-brand" href="index.html"><img class="navbar-logo" src="images/logo.jpg"></a>
+            <div class="collapse navbar-collapse  d-inline justify-content-end " id="navbarNav">
+              <ul class="navbar-nav">
+                <div class="dropdown d-inline">
+                  <button type="button" class="btn btn-danger  mr-xl-5 mr-lg-5 mr-md-5 mr-sm-5 dropdown-toggle" data-toggle="dropdown">
+                    My Account
+                  </button>
+                  <div class="dropdown-menu" id="drop-menu">
+                    <a class="dropdown-item" href="dashboard.html">My Dashboard</a>
+                    <a class="dropdown-item" href="index.html">Upload CSV File</a>
+                  </div>
+                </div>
+              </ul>
+            </div>
+          </nav>
+          <input type="file" name="csv-user-file" class="mx-auto mt-5 d-block" onchange="openFile()" accept=".csv" />
+          <button class="btn btn-primary mx-auto d-block mt-3" onclick="getSum()">Generate Graphs</button>
+          <div id="csv-output" class="text-center  table table-bordered mt-5"></div>
+          <canvas id="myChart"></canvas>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script src="drop-down-menu.js"></script>
+    <script src="load-csv-file.js"></script>
+    <script src="generate-graph.js"></script>
+    <script>
+      function getSum()
+      {
+        var sumValue=document.querySelector('table');
+          var sumBefore=0,sumAfter=0;
+          for(var i=1;i<sumValue.rows.length;i++)
+          {
+              sumBefore=sumBefore+parseInt(sumValue.rows[i].cells[8].innerHTML);
+          }
+          for(var j=1;j<sumValue.rows.length;j++)
+          {
+              sumAfter=sumAfter+parseInt(sumValue.rows[j].cells[9].innerHTML);
+          }
+          alert(sumBefore+" is the sum of all sales of year 2015");
+          alert(sumAfter+" is the sum of all sales of year 2016");
+          generateGraph(sumBefore,sumAfter);
+          sumBefore=sumAfter=0;
+      }
+    </script>
+    
+    
+</html>
